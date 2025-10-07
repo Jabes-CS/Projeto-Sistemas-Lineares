@@ -85,33 +85,27 @@ class LinearSystemSolver:
         
         # Labels para linhas
         for i in range(self.n):
-            row_label = tk.Label(matrix_frame, text=f"Equação {i+1}:", 
-                                 font=("Arial", 10), bg="#f0f0f0", fg="#555555")
+            row_label = tk.Label(matrix_frame, text=f"Equação {i+1}:", font=("Arial", 10), bg="#f0f0f0", fg="#555555")
             row_label.grid(row=i, column=0, padx=5, pady=5, sticky="e")
             
             for j in range(self.n):
-                label = tk.Label(matrix_frame, text=f"a_{i+1}{j+1}", 
-                                 font=("Arial", 9), bg="#f0f0f0", fg="#777777")
+                label = tk.Label(matrix_frame, text=f"a_{i+1}{j+1}", font=("Arial", 9), bg="#f0f0f0", fg="#777777")
                 label.grid(row=i, column=2*j + 1, padx=2, pady=5)
                 
-                entry = tk.Entry(matrix_frame, font=("Arial", 10), width=6, 
-                                 relief="solid", bd=1, bg="#ffffff")
+                entry = tk.Entry(matrix_frame, font=("Arial", 10), width=6, relief="solid", bd=1, bg="#ffffff")
                 entry.grid(row=i, column=2*j + 2, padx=2, pady=5)
                 self.entries[i][j] = entry
             
             # Termo independente
-            b_label = tk.Label(matrix_frame, text="=", font=("Arial", 10, "bold"), 
-                               bg="#f0f0f0", fg="#333333")
+            b_label = tk.Label(matrix_frame, text="=", font=("Arial", 10, "bold"), bg="#f0f0f0", fg="#333333")
             b_label.grid(row=i, column=2*self.n + 1, padx=5, pady=5)
             
-            b_entry = tk.Entry(matrix_frame, font=("Arial", 10), width=6, 
-                               relief="solid", bd=1, bg="#ffffff")
+            b_entry = tk.Entry(matrix_frame, font=("Arial", 10), width=6, relief="solid", bd=1, bg="#ffffff")
             b_entry.grid(row=i, column=2*self.n + 2, padx=2, pady=5)
             self.b_entries[i] = b_entry
         
         # Botão processar
-        btn_process = ttk.Button(self.input_window, text="Processar Sistema", 
-                                 command=self.process_system)
+        btn_process = ttk.Button(self.input_window, text="Processar Sistema", command=self.process_system)
         btn_process.pack(pady=20)
     
     def process_system(self):
@@ -197,8 +191,7 @@ class LinearSystemSolver:
         
         # Text widget para exibir
         text = scrolledtext.ScrolledText(self.display_window, width=70, height=20, 
-                                         font=("Courier", 11), bg="#ffffff", fg="#000000",
-                                         relief="solid", bd=1)
+                                         font=("Courier", 11), bg="#ffffff", fg="#000000", relief="solid", bd=1)
         text.pack(pady=10, padx=20, fill="both", expand=True)
         
         # Escrever sistema
@@ -212,8 +205,7 @@ class LinearSystemSolver:
         text.config(state="disabled")
         
         # Botão próximo
-        btn_next = ttk.Button(self.display_window, text="Ver Sistema Escalonado", 
-                              command=self.show_escalonado_system)
+        btn_next = ttk.Button(self.display_window, text="Ver Sistema Escalonado", command=self.show_escalonado_system)
         btn_next.pack(pady=10)
     
     def show_escalonado_system(self):
@@ -232,8 +224,7 @@ class LinearSystemSolver:
         
         # Text widget
         text = scrolledtext.ScrolledText(self.display_window, width=70, height=20, 
-                                         font=("Courier", 11), bg="#ffffff", fg="#000000",
-                                         relief="solid", bd=1)
+                                         font=("Courier", 11), bg="#ffffff", fg="#000000", relief="solid", bd=1)
         text.pack(pady=10, padx=20, fill="both", expand=True)
         
         # Escrever escalonado
@@ -248,11 +239,9 @@ class LinearSystemSolver:
         
         # Botão solução
         if self.has_solution:
-            btn_next = ttk.Button(self.display_window, text="Ver Solução", 
-                                  command=self.show_solution)
+            btn_next = ttk.Button(self.display_window, text="Ver Solução", command=self.show_solution)
         else:
-            btn_next = ttk.Button(self.display_window, text="Ver Status", 
-                                  command=self.show_no_solution)
+            btn_next = ttk.Button(self.display_window, text="Ver Status", command=self.show_no_solution)
         btn_next.pack(pady=10)
     
     def show_solution(self):
@@ -271,8 +260,7 @@ class LinearSystemSolver:
         
         # Text para solução
         text = scrolledtext.ScrolledText(self.display_window, width=50, height=15, 
-                                         font=("Courier", 12), bg="#ffffff", fg="#000000",
-                                         relief="solid", bd=1)
+                                         font=("Courier", 12), bg="#ffffff", fg="#000000", relief="solid", bd=1)
         text.pack(pady=10, padx=20, fill="both", expand=True)
         
         sol_str = "Solução:\n\n"
@@ -283,8 +271,7 @@ class LinearSystemSolver:
         text.config(state="disabled")
         
         # Botão voltar ao início
-        btn_restart = ttk.Button(self.display_window, text="Novo Sistema", 
-                                 command=self.restart)
+        btn_restart = ttk.Button(self.display_window, text="Novo Sistema", command=self.restart)
         btn_restart.pack(pady=10)
     
     def show_no_solution(self):
@@ -308,8 +295,7 @@ class LinearSystemSolver:
         msg.pack(pady=20)
         
         # Botão voltar
-        btn_restart = ttk.Button(self.display_window, text="Novo Sistema", 
-                                 command=self.restart)
+        btn_restart = ttk.Button(self.display_window, text="Novo Sistema", command=self.restart)
         btn_restart.pack(pady=10)
     
     def restart(self):
