@@ -1,9 +1,10 @@
+# <====== BIBLIOTECAS ======> #
 import customtkinter as ctk
 from tkinter import messagebox
 import numpy as np
 from fractions import Fraction
 
-# ========================= FUNÇÕES MATEMÁTICAS =========================
+# <========================= FUNÇÕES MATEMÁTICAS =========================> #
 
 def escalonar_sistema(A, B):
     n = len(B)
@@ -53,7 +54,7 @@ def resolver_sistema_indeterminado(A_escalonado, B_escalonado):
             X[i] = f"t{i + 1}"
     return X
 
-# ========================= INTERFACE =========================
+# <========================= INTERFACE =========================> #
 
 class SistemaLinearApp(ctk.CTk):
     def __init__(self):
@@ -80,7 +81,7 @@ class SistemaLinearApp(ctk.CTk):
         self.campos_A = []
         self.campos_B = []
 
-        # Botão resolver
+        # Botão resolver sistema
         self.btn_resolver = ctk.CTkButton(self, text="Resolver Sistema", command=self.resolver, width=200, height=40, font=("Arial", 14, "bold"))
         self.btn_resolver.pack(pady=10)
 
@@ -150,7 +151,7 @@ class SistemaLinearApp(ctk.CTk):
             for i, x in enumerate(solucao):
                 self.text_resultado.insert("end", f"x{i + 1} = {x}\n")
 
-# ========================= EXECUÇÃO =========================
+# <===== EXECUÇÃO =====> #
 if __name__ == "__main__":
     app = SistemaLinearApp()
     app.mainloop()
